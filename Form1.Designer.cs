@@ -50,7 +50,6 @@
             this.sefer_combobox = new System.Windows.Forms.ComboBox();
             this.mevcut_seferler = new System.Windows.Forms.Label();
             this.koltuk_numarasi = new System.Windows.Forms.Label();
-            this.koltuk_numarasi_numupdown = new System.Windows.Forms.NumericUpDown();
             this.bilet_sec_combobox = new System.Windows.Forms.ComboBox();
             this.bilet_sec = new System.Windows.Forms.Label();
             this.bilet_sil = new System.Windows.Forms.Label();
@@ -66,13 +65,21 @@
             this.gun_ve_saat = new System.Windows.Forms.Label();
             this.nereden_uyari = new System.Windows.Forms.Label();
             this.nereye_uyari = new System.Windows.Forms.Label();
-            this.gun_ve_saat_uyari = new System.Windows.Forms.Label();
             this.sefer_uyari = new System.Windows.Forms.Label();
             this.koltukno_uyari = new System.Windows.Forms.Label();
             this.biletsil_uyari = new System.Windows.Forms.Label();
             this.tc11rakam_uyari = new System.Windows.Forms.Label();
+            this.basariligiris_uyari = new System.Windows.Forms.Label();
+            this.cinsiyet2_uyari = new System.Windows.Forms.Label();
+            this.aynisehir_uyari = new System.Windows.Forms.Label();
+            this.basarilibilet_uyari = new System.Windows.Forms.Label();
+            this.basarilibiletsil_uyari = new System.Windows.Forms.Label();
+            this.girisyaphata_uyari = new System.Windows.Forms.Label();
+            this.biletsec_button = new System.Windows.Forms.Button();
+            this.directorySearcher1 = new System.DirectoryServices.DirectorySearcher();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.yas_numupdown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.koltuk_numarasi_numupdown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // hosgeldiniz
@@ -338,7 +345,6 @@
             this.nereden_combobox.Size = new System.Drawing.Size(131, 23);
             this.nereden_combobox.TabIndex = 20;
             this.nereden_combobox.Text = "Seçiniz";
-            this.nereden_combobox.SelectedIndexChanged += new System.EventHandler(this.nereden_combobox_SelectedIndexChanged);
             // 
             // nereye_combobox
             // 
@@ -437,48 +443,49 @@
             // sefer_combobox
             // 
             this.sefer_combobox.FormattingEnabled = true;
-            this.sefer_combobox.Location = new System.Drawing.Point(422, 358);
+            this.sefer_combobox.Items.AddRange(new object[] {
+            "Örnek Sefer 1",
+            "Örnek Sefer 2",
+            "Örnek Sefer 3",
+            "Örnek Sefer 4",
+            "Örnek Sefer 5"});
+            this.sefer_combobox.Location = new System.Drawing.Point(422, 339);
             this.sefer_combobox.Name = "sefer_combobox";
             this.sefer_combobox.Size = new System.Drawing.Size(246, 23);
             this.sefer_combobox.TabIndex = 23;
             this.sefer_combobox.Text = "Seçiniz";
-            this.sefer_combobox.SelectedIndexChanged += new System.EventHandler(this.sefer_combobox_SelectedIndexChanged);
             // 
             // mevcut_seferler
             // 
             this.mevcut_seferler.AutoSize = true;
             this.mevcut_seferler.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F);
-            this.mevcut_seferler.Location = new System.Drawing.Point(420, 336);
+            this.mevcut_seferler.Location = new System.Drawing.Point(420, 317);
             this.mevcut_seferler.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.mevcut_seferler.Name = "mevcut_seferler";
             this.mevcut_seferler.Size = new System.Drawing.Size(127, 18);
             this.mevcut_seferler.TabIndex = 22;
             this.mevcut_seferler.Text = "Mevcut Seferler: ";
-            this.mevcut_seferler.Click += new System.EventHandler(this.label4_Click);
             // 
             // koltuk_numarasi
             // 
             this.koltuk_numarasi.AutoSize = true;
             this.koltuk_numarasi.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F);
-            this.koltuk_numarasi.Location = new System.Drawing.Point(418, 423);
+            this.koltuk_numarasi.Location = new System.Drawing.Point(418, 404);
             this.koltuk_numarasi.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.koltuk_numarasi.Name = "koltuk_numarasi";
             this.koltuk_numarasi.Size = new System.Drawing.Size(129, 18);
             this.koltuk_numarasi.TabIndex = 24;
             this.koltuk_numarasi.Text = "Koltuk Numarası:";
-            this.koltuk_numarasi.Click += new System.EventHandler(this.label4_Click_1);
-            // 
-            // koltuk_numarasi_numupdown
-            // 
-            this.koltuk_numarasi_numupdown.Location = new System.Drawing.Point(595, 423);
-            this.koltuk_numarasi_numupdown.Name = "koltuk_numarasi_numupdown";
-            this.koltuk_numarasi_numupdown.Size = new System.Drawing.Size(73, 21);
-            this.koltuk_numarasi_numupdown.TabIndex = 25;
-            this.koltuk_numarasi_numupdown.Tag = "";
             // 
             // bilet_sec_combobox
             // 
             this.bilet_sec_combobox.FormattingEnabled = true;
+            this.bilet_sec_combobox.Items.AddRange(new object[] {
+            "Örnek Bilet 1",
+            "Örnek Bilet 2",
+            "Örnek Bilet 3",
+            "Örnek Bilet 4",
+            "Örnek Bilet 5"});
             this.bilet_sec_combobox.Location = new System.Drawing.Point(759, 169);
             this.bilet_sec_combobox.Name = "bilet_sec_combobox";
             this.bilet_sec_combobox.Size = new System.Drawing.Size(246, 23);
@@ -509,21 +516,23 @@
             // 
             // bileti_sil_button
             // 
-            this.bileti_sil_button.Location = new System.Drawing.Point(911, 223);
+            this.bileti_sil_button.Location = new System.Drawing.Point(911, 227);
             this.bileti_sil_button.Name = "bileti_sil_button";
             this.bileti_sil_button.Size = new System.Drawing.Size(94, 23);
             this.bileti_sil_button.TabIndex = 29;
             this.bileti_sil_button.Text = "Bileti Sil";
             this.bileti_sil_button.UseVisualStyleBackColor = true;
+            this.bileti_sil_button.Click += new System.EventHandler(this.bileti_sil_button_Click);
             // 
             // bilet_olustur_button
             // 
-            this.bilet_olustur_button.Location = new System.Drawing.Point(575, 482);
+            this.bilet_olustur_button.Location = new System.Drawing.Point(575, 478);
             this.bilet_olustur_button.Name = "bilet_olustur_button";
             this.bilet_olustur_button.Size = new System.Drawing.Size(94, 23);
             this.bilet_olustur_button.TabIndex = 30;
             this.bilet_olustur_button.Text = "Bilet Oluştur";
             this.bilet_olustur_button.UseVisualStyleBackColor = true;
+            this.bilet_olustur_button.Click += new System.EventHandler(this.bilet_olustur_button_Click);
             // 
             // tc_uyari
             // 
@@ -569,7 +578,7 @@
             this.cinsiyet_uyari.AutoSize = true;
             this.cinsiyet_uyari.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cinsiyet_uyari.ForeColor = System.Drawing.Color.Red;
-            this.cinsiyet_uyari.Location = new System.Drawing.Point(43, 343);
+            this.cinsiyet_uyari.Location = new System.Drawing.Point(45, 339);
             this.cinsiyet_uyari.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.cinsiyet_uyari.Name = "cinsiyet_uyari";
             this.cinsiyet_uyari.Size = new System.Drawing.Size(178, 15);
@@ -609,6 +618,7 @@
             this.zaman_dateTimePicker.Name = "zaman_dateTimePicker";
             this.zaman_dateTimePicker.Size = new System.Drawing.Size(245, 21);
             this.zaman_dateTimePicker.TabIndex = 37;
+            this.zaman_dateTimePicker.ValueChanged += new System.EventHandler(this.zaman_dateTimePicker_ValueChanged);
             // 
             // gun_ve_saat
             // 
@@ -620,7 +630,6 @@
             this.gun_ve_saat.Size = new System.Drawing.Size(100, 16);
             this.gun_ve_saat.TabIndex = 38;
             this.gun_ve_saat.Text = "Gün ve Saat: ";
-            this.gun_ve_saat.Click += new System.EventHandler(this.label1_Click);
             // 
             // nereden_uyari
             // 
@@ -648,25 +657,12 @@
             this.nereye_uyari.Text = "* Lütfen gideceğiniz ili seçiniz!";
             this.nereye_uyari.Visible = false;
             // 
-            // gun_ve_saat_uyari
-            // 
-            this.gun_ve_saat_uyari.AutoSize = true;
-            this.gun_ve_saat_uyari.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.gun_ve_saat_uyari.ForeColor = System.Drawing.Color.Red;
-            this.gun_ve_saat_uyari.Location = new System.Drawing.Point(420, 307);
-            this.gun_ve_saat_uyari.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.gun_ve_saat_uyari.Name = "gun_ve_saat_uyari";
-            this.gun_ve_saat_uyari.Size = new System.Drawing.Size(189, 15);
-            this.gun_ve_saat_uyari.TabIndex = 41;
-            this.gun_ve_saat_uyari.Text = "* Lütfen kalkış tarihini belirtiniz!";
-            this.gun_ve_saat_uyari.Visible = false;
-            // 
             // sefer_uyari
             // 
             this.sefer_uyari.AutoSize = true;
             this.sefer_uyari.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.sefer_uyari.ForeColor = System.Drawing.Color.Red;
-            this.sefer_uyari.Location = new System.Drawing.Point(419, 395);
+            this.sefer_uyari.Location = new System.Drawing.Point(419, 376);
             this.sefer_uyari.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.sefer_uyari.Name = "sefer_uyari";
             this.sefer_uyari.Size = new System.Drawing.Size(151, 15);
@@ -679,12 +675,12 @@
             this.koltukno_uyari.AutoSize = true;
             this.koltukno_uyari.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.koltukno_uyari.ForeColor = System.Drawing.Color.Red;
-            this.koltukno_uyari.Location = new System.Drawing.Point(419, 447);
+            this.koltukno_uyari.Location = new System.Drawing.Point(419, 428);
             this.koltukno_uyari.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.koltukno_uyari.Name = "koltukno_uyari";
-            this.koltukno_uyari.Size = new System.Drawing.Size(207, 15);
+            this.koltukno_uyari.Size = new System.Drawing.Size(205, 15);
             this.koltukno_uyari.TabIndex = 43;
-            this.koltukno_uyari.Text = "* Lütfen bu alanı boş bırakmayınız!";
+            this.koltukno_uyari.Text = "* Lütfen koltuk numaranızı seçiniz!";
             this.koltukno_uyari.Visible = false;
             // 
             // biletsil_uyari
@@ -713,17 +709,129 @@
             this.tc11rakam_uyari.Text = "* Lütfen 11 rakamlı kimlik numaranızı giriniz!";
             this.tc11rakam_uyari.Visible = false;
             // 
+            // basariligiris_uyari
+            // 
+            this.basariligiris_uyari.AutoSize = true;
+            this.basariligiris_uyari.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.basariligiris_uyari.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.basariligiris_uyari.Location = new System.Drawing.Point(167, 470);
+            this.basariligiris_uyari.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.basariligiris_uyari.Name = "basariligiris_uyari";
+            this.basariligiris_uyari.Size = new System.Drawing.Size(187, 15);
+            this.basariligiris_uyari.TabIndex = 46;
+            this.basariligiris_uyari.Text = "Bilgileriniz başarıyla kaydedildi!";
+            this.basariligiris_uyari.Visible = false;
+            // 
+            // cinsiyet2_uyari
+            // 
+            this.cinsiyet2_uyari.AutoSize = true;
+            this.cinsiyet2_uyari.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cinsiyet2_uyari.ForeColor = System.Drawing.Color.Red;
+            this.cinsiyet2_uyari.Location = new System.Drawing.Point(45, 339);
+            this.cinsiyet2_uyari.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.cinsiyet2_uyari.Name = "cinsiyet2_uyari";
+            this.cinsiyet2_uyari.Size = new System.Drawing.Size(208, 15);
+            this.cinsiyet2_uyari.TabIndex = 47;
+            this.cinsiyet2_uyari.Text = "*Lütfen sadece tek cinsiyet seçiniz!";
+            this.cinsiyet2_uyari.Visible = false;
+            // 
+            // aynisehir_uyari
+            // 
+            this.aynisehir_uyari.AutoSize = true;
+            this.aynisehir_uyari.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.aynisehir_uyari.ForeColor = System.Drawing.Color.Red;
+            this.aynisehir_uyari.Location = new System.Drawing.Point(403, 451);
+            this.aynisehir_uyari.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.aynisehir_uyari.Name = "aynisehir_uyari";
+            this.aynisehir_uyari.Size = new System.Drawing.Size(313, 15);
+            this.aynisehir_uyari.TabIndex = 48;
+            this.aynisehir_uyari.Text = "*Gideceğiniz şehirle bulunduğunuz şehir aynı olamaz!";
+            this.aynisehir_uyari.Visible = false;
+            // 
+            // basarilibilet_uyari
+            // 
+            this.basarilibilet_uyari.AutoSize = true;
+            this.basarilibilet_uyari.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.basarilibilet_uyari.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.basarilibilet_uyari.Location = new System.Drawing.Point(491, 529);
+            this.basarilibilet_uyari.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.basarilibilet_uyari.Name = "basarilibilet_uyari";
+            this.basarilibilet_uyari.Size = new System.Drawing.Size(178, 15);
+            this.basarilibilet_uyari.TabIndex = 49;
+            this.basarilibilet_uyari.Text = "Biletiniz başarıyla oluşturuldu!";
+            this.basarilibilet_uyari.Visible = false;
+            this.basarilibilet_uyari.Click += new System.EventHandler(this.basarilibilet_uyari_Click);
+            // 
+            // basarilibiletsil_uyari
+            // 
+            this.basarilibiletsil_uyari.AutoSize = true;
+            this.basarilibiletsil_uyari.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.basarilibiletsil_uyari.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.basarilibiletsil_uyari.Location = new System.Drawing.Point(858, 262);
+            this.basarilibiletsil_uyari.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.basarilibiletsil_uyari.Name = "basarilibiletsil_uyari";
+            this.basarilibiletsil_uyari.Size = new System.Drawing.Size(147, 15);
+            this.basarilibiletsil_uyari.TabIndex = 50;
+            this.basarilibiletsil_uyari.Text = "Biletiniz başarıyla silindi!";
+            this.basarilibiletsil_uyari.Visible = false;
+            // 
+            // girisyaphata_uyari
+            // 
+            this.girisyaphata_uyari.AutoSize = true;
+            this.girisyaphata_uyari.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.girisyaphata_uyari.ForeColor = System.Drawing.Color.Red;
+            this.girisyaphata_uyari.Location = new System.Drawing.Point(377, 504);
+            this.girisyaphata_uyari.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.girisyaphata_uyari.Name = "girisyaphata_uyari";
+            this.girisyaphata_uyari.Size = new System.Drawing.Size(339, 15);
+            this.girisyaphata_uyari.TabIndex = 51;
+            this.girisyaphata_uyari.Text = "* İşlem başarısız! Lütfen giriş yaptığınızdan emin olunuz!  ";
+            this.girisyaphata_uyari.Visible = false;
+            // 
+            // biletsec_button
+            // 
+            this.biletsec_button.Location = new System.Drawing.Point(575, 402);
+            this.biletsec_button.Name = "biletsec_button";
+            this.biletsec_button.Size = new System.Drawing.Size(94, 23);
+            this.biletsec_button.TabIndex = 52;
+            this.biletsec_button.Text = "Seçiniz";
+            this.biletsec_button.UseVisualStyleBackColor = true;
+            this.biletsec_button.Click += new System.EventHandler(this.biletsec_button_Click);
+            // 
+            // directorySearcher1
+            // 
+            this.directorySearcher1.ClientTimeout = System.TimeSpan.Parse("-00:00:01");
+            this.directorySearcher1.ServerPageTimeLimit = System.TimeSpan.Parse("-00:00:01");
+            this.directorySearcher1.ServerTimeLimit = System.TimeSpan.Parse("-00:00:01");
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.HighlightText;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataGridView1.GridColor = System.Drawing.SystemColors.Window;
+            this.dataGridView1.Location = new System.Drawing.Point(744, 284);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(290, 276);
+            this.dataGridView1.TabIndex = 53;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1080, 542);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClientSize = new System.Drawing.Size(1080, 572);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.biletsec_button);
+            this.Controls.Add(this.girisyaphata_uyari);
+            this.Controls.Add(this.basarilibiletsil_uyari);
+            this.Controls.Add(this.basarilibilet_uyari);
+            this.Controls.Add(this.aynisehir_uyari);
+            this.Controls.Add(this.cinsiyet2_uyari);
+            this.Controls.Add(this.basariligiris_uyari);
             this.Controls.Add(this.tc11rakam_uyari);
             this.Controls.Add(this.biletsil_uyari);
             this.Controls.Add(this.koltukno_uyari);
             this.Controls.Add(this.sefer_uyari);
-            this.Controls.Add(this.gun_ve_saat_uyari);
             this.Controls.Add(this.nereye_uyari);
             this.Controls.Add(this.nereden_uyari);
             this.Controls.Add(this.gun_ve_saat);
@@ -739,7 +847,6 @@
             this.Controls.Add(this.bilet_sec_combobox);
             this.Controls.Add(this.bilet_sec);
             this.Controls.Add(this.bilet_sil);
-            this.Controls.Add(this.koltuk_numarasi_numupdown);
             this.Controls.Add(this.koltuk_numarasi);
             this.Controls.Add(this.sefer_combobox);
             this.Controls.Add(this.mevcut_seferler);
@@ -767,10 +874,10 @@
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Şirket Adı";
+            this.Text = "Ulu Turizm";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.yas_numupdown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.koltuk_numarasi_numupdown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -800,7 +907,6 @@
         private System.Windows.Forms.ComboBox sefer_combobox;
         private System.Windows.Forms.Label mevcut_seferler;
         private System.Windows.Forms.Label koltuk_numarasi;
-        private System.Windows.Forms.NumericUpDown koltuk_numarasi_numupdown;
         private System.Windows.Forms.ComboBox bilet_sec_combobox;
         private System.Windows.Forms.Label bilet_sec;
         private System.Windows.Forms.Label bilet_sil;
@@ -816,11 +922,19 @@
         private System.Windows.Forms.Label gun_ve_saat;
         private System.Windows.Forms.Label nereden_uyari;
         private System.Windows.Forms.Label nereye_uyari;
-        private System.Windows.Forms.Label gun_ve_saat_uyari;
         private System.Windows.Forms.Label sefer_uyari;
-        private System.Windows.Forms.Label koltukno_uyari;
         private System.Windows.Forms.Label biletsil_uyari;
         private System.Windows.Forms.Label tc11rakam_uyari;
+        private System.Windows.Forms.Label basariligiris_uyari;
+        private System.Windows.Forms.Label cinsiyet2_uyari;
+        private System.Windows.Forms.Label aynisehir_uyari;
+        private System.Windows.Forms.Label basarilibilet_uyari;
+        private System.Windows.Forms.Label basarilibiletsil_uyari;
+        private System.Windows.Forms.Label girisyaphata_uyari;
+        private System.Windows.Forms.Button biletsec_button;
+        private System.DirectoryServices.DirectorySearcher directorySearcher1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label koltukno_uyari;
     }
 }
 
